@@ -1,5 +1,7 @@
 # Adventure World | 彩虹探险乐园
 
+> **2026-09-17 独立验收与下节课接续：** 请先读 [CLASSROOM_HANDOFF.md](CLASSROOM_HANDOFF.md)，以及 [实测证据](docs/qa/2026-09-17/)。开发日志中的完成描述不代替独立验收。
+
 A delightful 2.5D children's park exploration & mystery game co-created by Joey, Mia, and Chloe.
 Built with pure HTML5, Canvas 2D, Web Audio API, and modern ES modules. Zero external runtime dependencies.
 
