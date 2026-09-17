@@ -1,6 +1,7 @@
 {
   "title": "Adventure World",
   "subtitle": "Rainbow Adventure Park",
+  "hint_controls": "🎮 WASD or Click Ground to Move | [E] or Click Bubble to Interact | [F] Fly | [I] Invis | [L] Torch",
   "creators": "Co-created by Joey · Mia · Chloe",
   "btn_start": "Start Adventure",
   "btn_select_character": "Choose Your Explorer",

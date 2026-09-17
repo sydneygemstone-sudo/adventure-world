@@ -36,7 +36,8 @@ export class GameState {
       facing: "down",
       isMoving: false,
       walkTimer: 0,
-      takeoffPos: { x: spawn.x, y: spawn.y }
+      takeoffPos: { x: spawn.x, y: spawn.y },
+      targetMove: null
     };
 
     // Abilities

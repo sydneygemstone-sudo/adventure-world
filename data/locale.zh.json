@@ -1,6 +1,7 @@
 {
   "title": "Adventure World",
   "subtitle": "彩虹探险乐园",
+  "hint_controls": "🎮 WASD 或 点击地面移动 ｜ [E] 或 点击气泡互动 ｜ [F] 飞行 ｜ [I] 隐形 ｜ [L] 手电筒",
   "creators": "Joey · Mia · Chloe 课堂共创",
   "btn_start": "开始探险",
   "btn_select_character": "选择你的探险家",

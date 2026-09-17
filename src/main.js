@@ -85,6 +85,28 @@ class GameApp {
     const joyKnob = document.getElementById("joystick-knob");
     this.input.bindJoystickElement(joyContainer, joyKnob);
 
+    // Click-to-move / Tap-to-move & direct tap-to-interact on canvas
+    this.canvas.addEventListener("pointerdown", (e) => {
+      if (!this.state || this.state.uiState !== UI_STATES.PLAY) return;
+
+      const rect = this.canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+      const worldPos = this.renderer.screenToWorld(clickX, clickY);
+
+      // If near active interaction prompt or player, tap triggers interaction!
+      const prompt = this.quests.getInteractionPrompt(this.state, this.world, this.puppy, this.getStrings());
+      const distToPlayer = Math.hypot(worldPos.x - this.state.player.x, worldPos.y - this.state.player.y);
+
+      if (prompt && prompt.canAct && distToPlayer <= 64) {
+        this.handleActionInteract();
+        return;
+      }
+
+      // Otherwise, navigate smoothly toward tapped destination
+      this.state.player.targetMove = { x: worldPos.x, y: worldPos.y };
+    });
+
     // 9. Bind DOM Buttons & UI Overlays
     this.bindUI();
 
@@ -493,6 +515,7 @@ class GameApp {
     const my = this.input.moveY;
 
     if (mx !== 0 || my !== 0) {
+      p.targetMove = null; // Keyboard/joystick overrides click-to-move
       p.isMoving = true;
       p.walkTimer += dt * 8;
 
@@ -514,6 +537,46 @@ class GameApp {
       }
       if (collisionChecker(p.x, nextY)) {
         p.y = nextY;
+      }
+    } else if (p.targetMove) {
+      // Click-to-move navigation
+      const dx = p.targetMove.x - p.x;
+      const dy = p.targetMove.y - p.y;
+      const dist = Math.hypot(dx, dy);
+
+      if (dist < 6) {
+        p.targetMove = null;
+        p.isMoving = false;
+      } else {
+        p.isMoving = true;
+        p.walkTimer += dt * 8;
+
+        let speed = p.speed;
+        if (this.state.abilities.flight.active) {
+          speed *= this.state.abilities.flight.speedMultiplier;
+        }
+
+        const step = Math.min(dist, speed * dt);
+        const nextX = p.x + (dx / dist) * step;
+        const nextY = p.y + (dy / dist) * step;
+
+        const collisionChecker = this.state.abilities.flight.active
+          ? (x, y) => this.world.isFlyable(x, y, p.radius)
+          : (x, y) => this.world.isWalkable(x, y, p.radius);
+
+        let moved = false;
+        if (collisionChecker(nextX, p.y)) {
+          p.x = nextX;
+          moved = true;
+        }
+        if (collisionChecker(p.x, nextY)) {
+          p.y = nextY;
+          moved = true;
+        }
+
+        if (!moved) {
+          p.targetMove = null; // Reached obstacle
+        }
       }
     } else {
       p.isMoving = false;

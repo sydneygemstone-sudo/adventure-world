@@ -58,6 +58,15 @@ export class Renderer {
     };
   }
 
+  screenToWorld(sx, sy) {
+    const viewW = this.canvas.clientWidth;
+    const viewH = this.canvas.clientHeight;
+    return {
+      x: this.camera.x + (sx - viewW / 2),
+      y: this.camera.y + (sy - viewH / 2)
+    };
+  }
+
   render(state, world, puppy, questEngine, strings) {
     const ctx = this.ctx;
     const viewW = this.canvas.clientWidth;
@@ -94,7 +103,10 @@ export class Renderer {
     // 7. NPC Visitors
     this.drawVisitors(ctx, world.visitors);
 
-    // 8. Player Character
+    // 8. Player Character & Target Destination
+    if (state.player.targetMove) {
+      this.drawTargetMarker(ctx, state.player.targetMove.x, state.player.targetMove.y);
+    }
     this.drawPlayer(ctx, state);
 
     // 9. World Particles
@@ -682,6 +694,24 @@ export class Renderer {
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
       ctx.fill();
     }
+  }
+
+  drawTargetMarker(ctx, x, y) {
+    ctx.save();
+    const pulse = (Date.now() % 800) / 800;
+    const r = 6 + pulse * 14;
+    const alpha = Math.max(0, 1.0 - pulse);
+    ctx.strokeStyle = `rgba(59, 130, 246, ${alpha})`;
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.fillStyle = "#3b82f6";
+    ctx.beginPath();
+    ctx.arc(x, y, 4, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
   }
 
   drawNightLighting(state, world, puppy, viewW, viewH) {
