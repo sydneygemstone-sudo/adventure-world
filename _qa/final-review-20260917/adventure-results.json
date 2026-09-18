@@ -1,0 +1,365 @@
+[
+  {
+    "test": "A01-start-title-freeze",
+    "status": "PASS",
+    "data": {
+      "ui": "PLAY",
+      "phase": "DAY",
+      "pos": {
+        "x": 650,
+        "y": 950
+      },
+      "stamps": [],
+      "clues": [],
+      "avatar": "avatar-2",
+      "locale": "en",
+      "win": false
+    }
+  },
+  {
+    "test": "A02-water-slide",
+    "status": "PASS",
+    "data": {
+      "ui": "PLAY",
+      "phase": "DAY",
+      "pos": {
+        "x": 540,
+        "y": 440
+      },
+      "stamps": [
+        "waterpark"
+      ],
+      "clues": [],
+      "avatar": "avatar-2",
+      "locale": "en",
+      "win": false
+    }
+  },
+  {
+    "test": "A03-zoo-three-observations",
+    "status": "PASS",
+    "data": {
+      "state": {
+        "ui": "PLAY",
+        "phase": "DAY",
+        "pos": {
+          "x": 1353.9960000000033,
+          "y": 306.08
+        },
+        "stamps": [
+          "waterpark",
+          "zoo"
+        ],
+        "clues": [],
+        "avatar": "avatar-2",
+        "locale": "en",
+        "win": false
+      },
+      "observed": [
+        "lion",
+        "crocodile",
+        "giraffe"
+      ]
+    }
+  },
+  {
+    "test": "A04-puppy-three-stamps",
+    "status": "PASS",
+    "data": {
+      "ui": "PLAY",
+      "phase": "DAY",
+      "pos": {
+        "x": 333.8519999999939,
+        "y": 836.0959999999984
+      },
+      "stamps": [
+        "waterpark",
+        "zoo",
+        "puppy"
+      ],
+      "clues": [],
+      "avatar": "avatar-2",
+      "locale": "en",
+      "win": false
+    }
+  },
+  {
+    "test": "A05-night-sniff-trail",
+    "status": "PASS",
+    "data": {
+      "ui": "PLAY",
+      "phase": "NIGHT",
+      "pos": {
+        "x": 145.8479999999927,
+        "y": 646.0879999999958
+      },
+      "stamps": [
+        "waterpark",
+        "zoo",
+        "puppy"
+      ],
+      "clues": [
+        "trail"
+      ],
+      "avatar": "avatar-2",
+      "locale": "en",
+      "win": false
+    }
+  },
+  {
+    "test": "A06-flight-torch-sky",
+    "status": "PASS",
+    "data": {
+      "ui": "PLAY",
+      "phase": "NIGHT",
+      "pos": {
+        "x": 185.7839999999914,
+        "y": 186.08299999999304
+      },
+      "stamps": [
+        "waterpark",
+        "zoo",
+        "puppy"
+      ],
+      "clues": [
+        "trail",
+        "sky"
+      ],
+      "avatar": "avatar-2",
+      "locale": "en",
+      "win": false
+    }
+  },
+  {
+    "test": "A07-invisibility-quiet",
+    "status": "PASS",
+    "data": {
+      "ui": "PLAY",
+      "phase": "NIGHT",
+      "pos": {
+        "x": 913.2509999999922,
+        "y": 473.72299999998916
+      },
+      "stamps": [
+        "waterpark",
+        "zoo",
+        "puppy"
+      ],
+      "clues": [
+        "trail",
+        "sky",
+        "quiet"
+      ],
+      "avatar": "avatar-2",
+      "locale": "en",
+      "win": false
+    }
+  },
+  {
+    "test": "A08-clean-ui-complete-playthrough",
+    "status": "PASS",
+    "data": {
+      "state": {
+        "ui": "VICTORY",
+        "phase": "NIGHT",
+        "pos": {
+          "x": 655.2389999999913,
+          "y": 833.83100000001
+        },
+        "stamps": [
+          "waterpark",
+          "zoo",
+          "puppy"
+        ],
+        "clues": [
+          "trail",
+          "sky",
+          "quiet"
+        ],
+        "avatar": "avatar-2",
+        "locale": "en",
+        "win": true
+      },
+      "method": "Real keyboard and pointer/button inputs, no positions/quest injection; animated night button clicked at its actual screen centre"
+    }
+  },
+  {
+    "test": "A09-continue-after-victory",
+    "status": "PASS",
+    "data": {
+      "ui": "PLAY",
+      "phase": "COMPLETED",
+      "pos": {
+        "x": 655.2389999999913,
+        "y": 833.83100000001
+      },
+      "stamps": [
+        "waterpark",
+        "zoo",
+        "puppy"
+      ],
+      "clues": [
+        "trail",
+        "sky",
+        "quiet"
+      ],
+      "avatar": "avatar-2",
+      "locale": "en",
+      "win": true
+    }
+  },
+  {
+    "test": "A10-pause-freeze",
+    "status": "PASS",
+    "data": {
+      "ui": "PAUSED",
+      "phase": "COMPLETED",
+      "pos": {
+        "x": 655.2389999999913,
+        "y": 833.83100000001
+      },
+      "stamps": [
+        "waterpark",
+        "zoo",
+        "puppy"
+      ],
+      "clues": [
+        "trail",
+        "sky",
+        "quiet"
+      ],
+      "avatar": "avatar-2",
+      "locale": "en",
+      "win": true
+    }
+  },
+  {
+    "test": "A11-locale-coverage",
+    "status": "PARTIAL",
+    "data": {
+      "state": {
+        "ui": "PLAY",
+        "phase": "COMPLETED",
+        "pos": {
+          "x": 655.2389999999913,
+          "y": 833.83100000001
+        },
+        "stamps": [
+          "waterpark",
+          "zoo",
+          "puppy"
+        ],
+        "clues": [
+          "trail",
+          "sky",
+          "quiet"
+        ],
+        "avatar": "avatar-2",
+        "locale": "zh",
+        "win": true
+      },
+      "victorySummary": "Stamps: 3/3 | Clues: 3/3",
+      "note": "Locale switched but victory counter remains English"
+    }
+  },
+  {
+    "test": "A12-save-load",
+    "status": "PASS",
+    "data": {
+      "ui": "TITLE",
+      "phase": "COMPLETED",
+      "pos": {
+        "x": 655,
+        "y": 834
+      },
+      "stamps": [
+        "waterpark",
+        "zoo",
+        "puppy"
+      ],
+      "clues": [
+        "trail",
+        "sky",
+        "quiet"
+      ],
+      "avatar": "avatar-2",
+      "locale": "zh",
+      "win": true
+    }
+  },
+  {
+    "test": "A13-confirmed-restart",
+    "status": "PASS",
+    "data": {
+      "ui": "TITLE",
+      "phase": "DAY",
+      "pos": {
+        "x": 650,
+        "y": 950
+      },
+      "stamps": [],
+      "clues": [],
+      "avatar": "avatar-1",
+      "locale": "en",
+      "win": false
+    }
+  },
+  {
+    "test": "A14-click-to-move",
+    "status": "PASS",
+    "data": {
+      "before": {
+        "ui": "PLAY",
+        "phase": "DAY",
+        "pos": {
+          "x": 650,
+          "y": 950
+        },
+        "stamps": [],
+        "clues": [],
+        "avatar": "avatar-1",
+        "locale": "en",
+        "win": false
+      },
+      "after": {
+        "ui": "PLAY",
+        "phase": "DAY",
+        "pos": {
+          "x": 726.0079999999998,
+          "y": 950
+        },
+        "stamps": [],
+        "clues": [],
+        "avatar": "avatar-1",
+        "locale": "en",
+        "win": false
+      }
+    }
+  },
+  {
+    "test": "A15-webkit-file-touch",
+    "status": "PASS",
+    "data": {
+      "state": "PLAY",
+      "flight": true,
+      "note": "WebKit touch emulation, local file entry, not physical iPad"
+    }
+  },
+  {
+    "test": "A16-unit-suite",
+    "status": "PASS",
+    "data": {
+      "command": "node tests/unit-tests.js",
+      "passed": 10,
+      "total": 10,
+      "scope": "Unit fixtures, not all browser acceptance requirements"
+    }
+  },
+  {
+    "test": "A17-bundle-reproducibility",
+    "status": "PASS",
+    "data": {
+      "method": "Rebuilt from copied src/data/scripts in isolated directory; cmp matched committed bundle.js byte-for-byte"
+    }
+  }
+]
